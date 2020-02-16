@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/@taystack/use-leet/static/css/main.2c6a48fe.chunk.css",
+    "main.js": "/@taystack/use-leet/static/js/main.bbd4a991.chunk.js",
+    "main.js.map": "/@taystack/use-leet/static/js/main.bbd4a991.chunk.js.map",
+    "runtime-main.js": "/@taystack/use-leet/static/js/runtime-main.25ae5b96.js",
+    "runtime-main.js.map": "/@taystack/use-leet/static/js/runtime-main.25ae5b96.js.map",
+    "static/js/2.a451ddbf.chunk.js": "/@taystack/use-leet/static/js/2.a451ddbf.chunk.js",
+    "static/js/2.a451ddbf.chunk.js.map": "/@taystack/use-leet/static/js/2.a451ddbf.chunk.js.map",
+    "index.html": "/@taystack/use-leet/index.html",
+    "precache-manifest.cf9f835d803ed40e42840e3b6d01dbfb.js": "/@taystack/use-leet/precache-manifest.cf9f835d803ed40e42840e3b6d01dbfb.js",
+    "service-worker.js": "/@taystack/use-leet/service-worker.js",
+    "static/css/main.2c6a48fe.chunk.css.map": "/@taystack/use-leet/static/css/main.2c6a48fe.chunk.css.map",
+    "static/js/2.a451ddbf.chunk.js.LICENSE.txt": "/@taystack/use-leet/static/js/2.a451ddbf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25ae5b96.js",
+    "static/js/2.a451ddbf.chunk.js",
+    "static/css/main.2c6a48fe.chunk.css",
+    "static/js/main.bbd4a991.chunk.js"
+  ]
+}
