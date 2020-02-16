@@ -26,7 +26,7 @@ const Example = () => {
 
 const ExampleWithCustomLeetMap = () => {
   const leetMap = { c: "¢" };
-  const [stateValue, stateValueSetter, leetValue] = useLeet("nice zeebra dude");
+  const [stateValue, stateValueSetter, leetValue] = useLeet("nice zeebra dude", leetMap);
   return (<div>{leetValue}</div>);
 }
 /* => <div>n1¢3 z33br4 d00d</div> */
