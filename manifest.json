@@ -1,6 +1,6 @@
 {
-  "short_name": "taystack/use-leet",
-  "name": "taystack/use-leet",
+  "short_name": "@taystack/use-leet",
+  "name": "@taystack/use-leet",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
