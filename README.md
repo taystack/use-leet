@@ -13,16 +13,23 @@ npm install --save @taystack/use-leet
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from "react";
 
-import { useMyHook } from '@taystack/use-leet'
+import useLeet from "@taystack/use-leet";
+
 
 const Example = () => {
-  const example = useMyHook()
-  return (
-    <div>{example}</div>
-  )
+  const [stateValue, stateValueSetter, leetValue] = useLeet("dope hacks!");
+  return (<div>{leetValue}</div>);
 }
+/* => <div>d0p3 haxzorz</div> */
+
+const ExampleWithCustomLeetMap = () => {
+  const leetMap = { c: "¢" };
+  const [stateValue, stateValueSetter, leetValue] = useLeet("nice zeebra dude");
+  return (<div>{leetValue}</div>);
+}
+/* => <div>n1¢3 z33br4 d00d</div> */
 ```
 
 ## License

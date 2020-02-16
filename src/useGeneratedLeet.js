@@ -41,6 +41,9 @@ export default function useGeneratedLeet( value, leetMap = defaultLeetMap ) {
     // [...greetings] -> jo
     subbedValue = subbedValue.replace(/yo|hi|hey|hello|sup|what\'s\sup|what\sis\sup/gi, "jo");
 
+    // Not a noob, but a newb.
+    subbedValue = subbedValue.replace(/new\sperson/gi, "newb");
+
     // hacks -> hax
     subbedValue = subbedValue.replace(/hacks/gi, "hax");
 
