@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useLeet from "@taystack/use-leet";
+import { useLeet } from "@taystack/use-leet";
 
 
 const CustomValue = ({ from, to, index, onRemove }) => (

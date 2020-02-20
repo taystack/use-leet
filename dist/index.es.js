@@ -133,10 +133,10 @@ var defaultLeetMap = {
   "…": "ness"
 };
 
+// import { defaultLeetMap } from "./config";
 // otherwise return the letter.
 
-function getLeetValue(letter) {
-  var leetMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultLeetMap;
+function getLeetValue(letter, leetMap) {
   var leetValue = leetMap[letter.toLowerCase()];
   return leetValue ? leetValue : letter;
 }
@@ -181,6 +181,24 @@ function useGeneratedLeet(value) {
   }, [value, leetMap]);
 }
 
+var index = global.UseLeet || (global.UseLeet = new UseLeetGlobal());
+
+function UseLeetGlobal() {
+  this.map = _objectSpread2({}, defaultLeetMap);
+}
+
+UseLeetGlobal.prototype.setMap = function (customLeetMap) {
+  this.map = _objectSpread2({}, defaultLeetMap, {}, customLeetMap);
+};
+
+UseLeetGlobal.prototype.getMap = function () {
+  return this.map;
+};
+
+UseLeetGlobal.prototype.resetMap = function () {
+  this.map = _objectSpread2({}, defaultLeetMap);
+};
+
 function useLeet() {
   var defaultValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
   var custom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -193,12 +211,13 @@ function useLeet() {
 
 
   var leetMap = useMemo(function () {
-    return _objectSpread2({}, defaultLeetMap, {}, custom);
+    return _objectSpread2({}, UseLeet.getMap(), {}, custom);
   }, [custom]); // Memoize the generated leet
 
   var leet = useGeneratedLeet(value, leetMap);
   return [value, setValue, leet];
 }
 
-export default useLeet;
+export default index;
+export { useLeet };
 //# sourceMappingURL=index.es.js.map

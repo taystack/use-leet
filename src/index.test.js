@@ -1,4 +1,4 @@
-import useLeet from "./";
+import UseLeet, { useLeet } from "./";
 import { renderHook } from "@testing-library/react-hooks";
 
 // mock timer using jest
@@ -59,5 +59,15 @@ describe("useLeet", () => {
     const { result } = renderHook(() => useLeet("custom leet map", customLeetMap));
 
     expect(result.current[2]).toBe("Cu570m 1EE7 m4p");
+  });
+
+  it("should allow setting a global custom map", () => {
+    let hook = renderHook(() => useLeet("custom leet map"));
+    expect(hook.result.current[2]).toBe("cu570m 1337 m4p");
+
+    const customLeetMap = { c: "C", e: "E" };
+    UseLeet.setMap(customLeetMap);
+    hook = renderHook(() => useLeet("custom leet map"));
+    expect(hook.result.current[2]).toBe("Cu570m 1EE7 m4p");
   });
 });

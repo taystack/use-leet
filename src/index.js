@@ -3,7 +3,29 @@ import { defaultLeetMap } from "./config";
 import useGeneratedLeet from "./useGeneratedLeet";
 
 
-export default function useLeet( defaultValue = "", custom = {} ) {
+export default (global.UseLeet || (global.UseLeet = new UseLeetGlobal()));
+
+function UseLeetGlobal() {
+  this.map = { ...defaultLeetMap };
+}
+
+UseLeetGlobal.prototype.setMap = function(customLeetMap) {
+  this.map = {
+    ...defaultLeetMap,
+    ...customLeetMap,
+  };
+}
+
+UseLeetGlobal.prototype.getMap = function() {
+  return this.map;
+}
+
+UseLeetGlobal.prototype.resetMap = function() {
+  this.map = { ...defaultLeetMap };
+}
+
+
+export function useLeet( defaultValue = "", custom = {} ) {
 
   // Store the plain text stuff
   const [ value, setValue ] = useState(defaultValue);
@@ -11,7 +33,7 @@ export default function useLeet( defaultValue = "", custom = {} ) {
   // Memoize the map used for leet-ifying
   const leetMap = useMemo(() => {
     return {
-      ...defaultLeetMap,
+      ...UseLeet.getMap(),
       ...custom,
     };
   }, [custom]);
