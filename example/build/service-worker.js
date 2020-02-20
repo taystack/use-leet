@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/taystack/use-leet/precache-manifest.be41f1fbc2c4cab4b385f8c3d6db7aaa.js"
+  "/taystack/use-leet/precache-manifest.dd710fd9142df7945197b3d7f9c35fc5.js"
 );
 
 self.addEventListener('message', (event) => {

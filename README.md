@@ -15,14 +15,23 @@ npm install --save @taystack/use-leet
 ```jsx
 import React from "react";
 
-import useLeet from "@taystack/use-leet";
+import { useLeet } from "@taystack/use-leet";
 
 
 const Example = () => {
-  const [stateValue, stateValueSetter, leetValue] = useLeet("dope hacks!");
-  return (<div>{leetValue}</div>);
+  const [value, setValue, leetValue] = useLeet("dope hacks!");
+  return (<>
+    <input
+      defaultValue={value}
+      onChange={event => setValue(event.target.value)}
+    />
+    <div>{leetValue}</div>
+  </>);
 }
-/* => <div>d0p3 haxzorz</div> */
+// => ( react fragment )
+// <input />
+// <div>d0p3 haxzorz</div>
+
 
 const ExampleWithCustomLeetMap = () => {
   const leetMap = { c: "¢" };
@@ -31,6 +40,40 @@ const ExampleWithCustomLeetMap = () => {
 }
 /* => <div>n1¢3 z33br4 d00d</div> */
 ```
+
+## Setting your `leetMap` globally
+
+It's possible to just set your optional `leetMap` from an exported global `UseLeet`. Once this is done, you don't have to worry about providing it in the hook.
+
+```jsx
+import UseLeet from "@taystack/use-leet";
+import App from "./App";
+const customLeetMap = { c: "¢" };
+UseLeet.setMap(customLeetMap);
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+## default export `useLeet`
+
+`const [STRING value, FUNC setValue, STRING leetValue] = useLeet ( STRING defaultValue [, customLeetMap HASH ])`
+
+This is essentially `const [value, setValue] = useState("")` but with an extra returned item `leetValue`.
+
+| argument |  type | effect | required | default value |
+|---|---|---|---|---|
+| `defaultValue` | `STRING`| The value to initialize with | No | "" |
+| `customLeetMap` | `HASH` | {`key`/`value`} pairs to override default leet map | No | {} |
+
+
+| returns | type | effect |
+|---|---|---|
+| `value` | `STRING`| This is [`value`, _] = useState(`defaultValue`) |
+| `setValue` | `FUNC` | This is [`value`, `setValue`] = useState(`defaultValue`), re-converts `leetValue` automatically |
+| `leetValue` | `STRING` | The converted 7334 |
+
+
+
 
 ## License
 

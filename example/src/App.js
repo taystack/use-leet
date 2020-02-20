@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useLeet from "@taystack/use-leet";
+import { useLeet } from "@taystack/use-leet";
 
 
 const CustomValue = ({ from, to, index, onRemove }) => (
@@ -16,7 +16,7 @@ const App = () => {
   const [customValues, setCustomValues] = useState([]);
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const [value, setValue, leet] = useLeet("I just owned a bunch of noobs\ndude, you are all my dudes and dudettes\nyour zebra was fired and banned over dope hacks\nunique, new york\nget off my lawn\nthe internet is a series of tubes\nthe answer is 42", customMap);
+  const [value, setValue, leet] = useLeet("You can modify this text\nBelow is the compiled version of whetever you put here\nI just owned a bunch of noobs\ndude, you are all my dudes and dudettes\nyour zebra was fired and banned over dope hacks\nunique, new york\nget off my lawn\nthe internet is a series of tubes\nthe answer is 42", customMap);
 
   const handleRemove = index => {
     const newValues = [];
@@ -53,6 +53,8 @@ const App = () => {
       padding: 50,
       fontSize: 16,
     }}>
+    <h1><a href="https://github.com/taystack/use-leet">@taystack/use-leet</a></h1>
+      <p>Leetify your text with this react 16.8+ hook</p>
       <textarea
         value={value}
         onChange={event => setValue(event.target.value)}
