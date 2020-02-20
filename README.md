@@ -1,8 +1,9 @@
+![UseLeet](https://github.com/taystack/use-leet/blob/master/logo.png?raw=true)
+[![NPM](https://img.shields.io/npm/v/@taystack/use-leet.svg)](https://www.npmjs.com/package/@taystack/use-leet) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![codecov](https://codecov.io/gh/taystack/use-leet/branch/master/graph/badge.svg)](https://codecov.io/gh/taystack/use-leet)
+
 # @taystack/use-leet
 
 > Leet-ify your text with leet speak. React hook turns your given text value into 1337 SP34K.
-
-[![NPM](https://img.shields.io/npm/v/@taystack/use-leet.svg)](https://www.npmjs.com/package/@taystack/use-leet) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![codecov](https://codecov.io/gh/taystack/use-leet/branch/master/graph/badge.svg)](https://codecov.io/gh/taystack/use-leet)
 
 ## Install
 
@@ -47,9 +48,11 @@ It's possible to just set your optional `leetMap` from an exported global `UseLe
 
 ```jsx
 import UseLeet from "@taystack/use-leet";
+
 import App from "./App";
+
 const customLeetMap = { c: "¢" };
-UseLeet.setMap(customLeetMap);
+UseLeet.setMap(customLeetMap); // <- set it and forget it
 
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
