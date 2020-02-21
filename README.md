@@ -1,8 +1,6 @@
 ![UseLeet](https://github.com/taystack/use-leet/blob/master/logo.png?raw=true)
 [![NPM](https://img.shields.io/npm/v/@taystack/use-leet.svg)](https://www.npmjs.com/package/@taystack/use-leet) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![codecov](https://codecov.io/gh/taystack/use-leet/branch/master/graph/badge.svg)](https://codecov.io/gh/taystack/use-leet)
 
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
 # @taystack/use-leet
 
 > Leet-ify your text with leet speak. React hook turns your given text value into 1337 SP34K.
