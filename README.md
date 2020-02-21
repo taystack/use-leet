@@ -1,5 +1,5 @@
 ![UseLeet](https://github.com/taystack/use-leet/blob/master/logo.png?raw=true)
-[![NPM](https://img.shields.io/npm/v/@taystack/use-leet.svg)](https://www.npmjs.com/package/@taystack/use-leet) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![codecov](https://codecov.io/gh/taystack/use-leet/branch/master/graph/badge.svg)](https://codecov.io/gh/taystack/use-leet)
+[![NPM](https://img.shields.io/npm/v/@taystack/use-leet.svg)](https://www.npmjs.com/package/@taystack/use-leet) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![codecov](https://codecov.io/gh/taystack/use-leet/branch/master/graph/badge.svg)](https://codecov.io/gh/taystack/use-leet) [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/) 
 
 # @taystack/use-leet
 
@@ -80,7 +80,7 @@ This is essentially `const [value, setValue] = useState("")` but with an extra r
 
 ## License
 
-MIT © [taystack](https://github.com/taystack)
+WTFPL © [taystack](https://github.com/taystack)
 
 ---
 
