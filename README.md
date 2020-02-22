@@ -59,7 +59,28 @@ UseLeet.setMap(customLeetMap); // <- set it and forget it
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-## default export `useLeet`
+## default export `UseLeet`
+
+`import UseLeet from "@taystack/use-leet";`
+
+### `UseLeet.setMap( HASH customLeetMap )`
+
+| argument | type | effect |
+|---|---|---|
+|customLeetMap|`HASH`|Configures matching letters to return `STRING` values|
+
+```jsx
+const myCustomLeetMap = { a: "@", b: "6", c: "¢", n: "ñ", "i": "¡" };
+UseLeet.setMap(myCustomLeetMap);
+
+function ShowLeet({ text }) => {
+  const [val, setVal, leetText] = useLeet("I crunch granola");
+  return (<>{leetText}</>);
+}
+// => "¡ ¢run¢h gr4n014"
+```
+
+## export `useLeet`
 
 `const [STRING value, FUNC setValue, STRING leetValue] = useLeet ( STRING defaultValue [, customLeetMap HASH ])`
 
@@ -76,7 +97,6 @@ This is essentially `const [value, setValue] = useState("")` but with an extra r
 | `value` | `STRING`| This is [`value`, _] = useState(`defaultValue`) |
 | `setValue` | `FUNC` | This is [`value`, `setValue`] = useState(`defaultValue`), re-converts `leetValue` automatically |
 | `leetValue` | `STRING` | The converted 7334 |
-
 
 
 
