@@ -5,7 +5,7 @@
 
 > Leet-ify your text with leet speak. React hook turns your given text value into 1337 SP34K.
 
-[71v3 d3m0](https://taystack.github.io/use-leet)
+[71v3 d3m0](https://taystack.github.io/use-leet/index.html)
 
 ## Install
 
