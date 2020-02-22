@@ -266,13 +266,12 @@ function getLeetValue(letter, leetMap) {
   return leetValue ? leetValue : letter;
 }
 
-function useGeneratedLeet(value) {
-  var leetMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultLeetMap;
-  // Memoize the generated leet when either VALUE or LEET_MAP changes
+function useGeneratedLeet(value, leetMap) {
+  // Memoize the generated leet when either VALUE, LEET_MAP, or UseLeet.generator changes
   return react.useMemo(function () {
     // Hotwire our way to the custom generator.
     if (UseLeet$1.generator) {
-      return customGenerator(value);
+      return UseLeet$1.generator(value);
     } // Get some words out that transpile to characters
 
 
@@ -308,7 +307,7 @@ function useGeneratedLeet(value) {
     }).join(""); // Memoize the generated leet
 
     return generatedLeet;
-  }, [value, leetMap, customGenerator]);
+  }, [value, leetMap, UseLeet$1.generator]);
 }
 
 var UseLeet$1 = global.UseLeet || (global.UseLeet = new UseLeetGlobal());
