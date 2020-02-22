@@ -20,7 +20,7 @@
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
     "coverage": "./node_modules/.bin/codecov --token=\"$CODECOV_TOKEN_USE_LEET\"",
-    "deploy": "gh-pages -d example/build"
+    "deploy:example": "git subtree push --prefix example origin gh-pages"
   },
   "peerDependencies": {
     "react": "^16.9.0"
