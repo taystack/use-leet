@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/taystack/use-leet/static/css/main.2c6a48fe.chunk.css",
-    "main.js": "/taystack/use-leet/static/js/main.6798055c.chunk.js",
-    "main.js.map": "/taystack/use-leet/static/js/main.6798055c.chunk.js.map",
-    "runtime-main.js": "/taystack/use-leet/static/js/runtime-main.0e06dd2a.js",
-    "runtime-main.js.map": "/taystack/use-leet/static/js/runtime-main.0e06dd2a.js.map",
-    "static/js/2.dafd6f51.chunk.js": "/taystack/use-leet/static/js/2.dafd6f51.chunk.js",
-    "static/js/2.dafd6f51.chunk.js.map": "/taystack/use-leet/static/js/2.dafd6f51.chunk.js.map",
-    "index.html": "/taystack/use-leet/index.html",
-    "precache-manifest.fe6198fda9d43bb1568e60081c0af482.js": "/taystack/use-leet/precache-manifest.fe6198fda9d43bb1568e60081c0af482.js",
-    "service-worker.js": "/taystack/use-leet/service-worker.js",
-    "static/css/main.2c6a48fe.chunk.css.map": "/taystack/use-leet/static/css/main.2c6a48fe.chunk.css.map",
-    "static/js/2.dafd6f51.chunk.js.LICENSE.txt": "/taystack/use-leet/static/js/2.dafd6f51.chunk.js.LICENSE.txt"
+    "main.css": "/use-leet/example/static/css/main.2c6a48fe.chunk.css",
+    "main.js": "/use-leet/example/static/js/main.6798055c.chunk.js",
+    "main.js.map": "/use-leet/example/static/js/main.6798055c.chunk.js.map",
+    "runtime-main.js": "/use-leet/example/static/js/runtime-main.fc048826.js",
+    "runtime-main.js.map": "/use-leet/example/static/js/runtime-main.fc048826.js.map",
+    "static/js/2.dafd6f51.chunk.js": "/use-leet/example/static/js/2.dafd6f51.chunk.js",
+    "static/js/2.dafd6f51.chunk.js.map": "/use-leet/example/static/js/2.dafd6f51.chunk.js.map",
+    "index.html": "/use-leet/example/index.html",
+    "precache-manifest.a165eb868e93010dbf3668c66f51b8b9.js": "/use-leet/example/precache-manifest.a165eb868e93010dbf3668c66f51b8b9.js",
+    "service-worker.js": "/use-leet/example/service-worker.js",
+    "static/css/main.2c6a48fe.chunk.css.map": "/use-leet/example/static/css/main.2c6a48fe.chunk.css.map",
+    "static/js/2.dafd6f51.chunk.js.LICENSE.txt": "/use-leet/example/static/js/2.dafd6f51.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0e06dd2a.js",
+    "static/js/runtime-main.fc048826.js",
     "static/js/2.dafd6f51.chunk.js",
     "static/css/main.2c6a48fe.chunk.css",
     "static/js/main.6798055c.chunk.js"
