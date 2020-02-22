@@ -1,6 +1,6 @@
 {
   "name": "@taystack/use-leet",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Leet-ify your text with leet speak. React hook turns your given text value into 1337 SP34K.",
   "author": "taystack",
   "license": "MIT",
