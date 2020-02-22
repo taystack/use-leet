@@ -9,7 +9,18 @@ function UseLeetGlobal() {
   this.map = { ...defaultLeetMap };
 }
 
+class UseLeetCustomMapError extends Error {
+  constructor(arg) {
+    const str = "UseLeet expects customMap to be of a shape { STRING_A: STRING_A_RETURNS } - you provided ";
+    try { super(`${str}${arg.toString()}`);
+    } catch(e) { super(`${str}something... something unprintable.`); }
+  }
+}
+
 UseLeetGlobal.prototype.setMap = function(customLeetMap) {
+  Object.keys(customLeetMap).forEach(k => {
+    if (typeof customLeetMap[k] !== "string") throw new UseLeetCustomMapError(customLeetMap[k]);
+  });
   this.map = {
     ...defaultLeetMap,
     ...customLeetMap,
