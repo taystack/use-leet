@@ -1,21 +1,5 @@
 import { useMemo, useState } from 'react';
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -282,7 +266,12 @@ function useGeneratedLeet(value) {
   var leetMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultLeetMap;
   // Memoize the generated leet when either VALUE or LEET_MAP changes
   return useMemo(function () {
-    // Get some words out that transpile to characters
+    // Hotwire our way to the custom generator.
+    if (UseLeet$1.generator) {
+      return customGenerator(value);
+    } // Get some words out that transpile to characters
+
+
     var subbedValue = value; // Point at 'ness' with a safe-ish character.
 
     subbedValue = subbedValue.replace(/ness/gi, "…"); // own -> pwn
@@ -315,40 +304,68 @@ function useGeneratedLeet(value) {
     }).join(""); // Memoize the generated leet
 
     return generatedLeet;
-  }, [value, leetMap]);
+  }, [value, leetMap, customGenerator]);
 }
 
-var index = global.UseLeet || (global.UseLeet = new UseLeetGlobal());
+var UseLeet$1 = global.UseLeet || (global.UseLeet = new UseLeetGlobal());
 
 function UseLeetGlobal() {
   this.map = _objectSpread2({}, defaultLeetMap);
+  this.generator = false;
 }
 
-var UseLeetCustomMapError =
+var UseLeetError =
 /*#__PURE__*/
 function (_Error) {
-  _inherits(UseLeetCustomMapError, _Error);
+  _inherits(UseLeetError, _Error);
 
-  function UseLeetCustomMapError(arg) {
+  function UseLeetError(msg, arg) {
     var _this;
 
-    _classCallCheck(this, UseLeetCustomMapError);
+    _classCallCheck(this, UseLeetError);
 
-    var str = "UseLeet expects customMap to be of a shape { STRING_A: STRING_A_RETURNS } - you provided ";
+    var str = "".concat(msg, " - you provided");
 
     try {
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(UseLeetCustomMapError).call(this, "".concat(str).concat(arg.toString())));
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(UseLeetError).call(this, "".concat(str, " ").concat(arg.toString())));
     } catch (e) {
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(UseLeetCustomMapError).call(this, "".concat(str, "something... something unprintable.")));
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(UseLeetError).call(this, "".concat(str, " something... something unprintable.")));
     }
 
     return _this;
   }
 
-  return UseLeetCustomMapError;
+  return UseLeetError;
 }(_wrapNativeSuper(Error));
+var UseLeetCustomMapError =
+/*#__PURE__*/
+function (_UseLeetError) {
+  _inherits(UseLeetCustomMapError, _UseLeetError);
+
+  function UseLeetCustomMapError(arg) {
+    _classCallCheck(this, UseLeetCustomMapError);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UseLeetCustomMapError).call(this, "UseLeet expects customMap to be of a shape { CHAR_A: CHAR_A_RETURNS }", arg));
+  }
+
+  return UseLeetCustomMapError;
+}(UseLeetError);
+var UseLeetCustomGeneratorError =
+/*#__PURE__*/
+function (_UseLeetError2) {
+  _inherits(UseLeetCustomGeneratorError, _UseLeetError2);
+
+  function UseLeetCustomGeneratorError(arg) {
+    _classCallCheck(this, UseLeetCustomGeneratorError);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UseLeetCustomGeneratorError).call(this, "UseLeet expects customGenerator to be of type FUNC", arg));
+  }
+
+  return UseLeetCustomGeneratorError;
+}(UseLeetError);
 
 UseLeetGlobal.prototype.setMap = function (customLeetMap) {
+  if (customLeetMap.constructor !== Object) throw new UseLeetCustomMapError(customLeetMap);
   Object.keys(customLeetMap).forEach(function (k) {
     if (typeof customLeetMap[k] !== "string") throw new UseLeetCustomMapError(customLeetMap[k]);
   });
@@ -356,7 +373,12 @@ UseLeetGlobal.prototype.setMap = function (customLeetMap) {
 };
 
 UseLeetGlobal.prototype.setGenerator = function (generator) {
-  console.log("typeof", _typeof(generator));
+  if (typeof generator !== "function") throw new UseLeetCustomGeneratorError(generator);
+  this.generator = generator;
+};
+
+UseLeetGlobal.prototype.resetGenerator = function () {
+  this.generator = false;
 };
 
 UseLeetGlobal.prototype.getMap = function () {
@@ -382,10 +404,10 @@ function useLeet() {
     return _objectSpread2({}, UseLeet.getMap(), {}, custom);
   }, [custom]); // Memoize the generated leet
 
-  var leet = useGeneratedLeet(value, leetMap);
+  var leet = useGeneratedLeet(value, leetMap, UseLeet.generator);
   return [value, setValue, leet];
 }
 
-export default index;
-export { UseLeetCustomMapError, useLeet };
+export default UseLeet$1;
+export { UseLeetCustomGeneratorError, UseLeetCustomMapError, UseLeetError, useLeet };
 //# sourceMappingURL=index.es.js.map

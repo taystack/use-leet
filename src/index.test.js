@@ -87,10 +87,13 @@ describe("useLeet", () => {
     expect(e.message).toMatch("foo"); }
   });
 
-  it("should allow a custom generator method", () => {
+  it("should allow a custom generator method - on the fly", () => {
+    let hook = renderHook(() => useLeet("custom leet generator"));
+    expect(hook.result.current[2]).toEqual("cu570m 1337 g3n3r470r");
+
     const generator = x => x.toUpperCase();
     UseLeet.setGenerator(generator);
-    const hook = renderHook(() => useLeet("custom leet generator"));
+    hook = renderHook(() => useLeet("custom leet generator"));
     expect(hook.result.current[2]).toBe("CUSTOM LEET GENERATOR")
   });
 
