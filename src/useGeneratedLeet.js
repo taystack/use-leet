@@ -1,11 +1,15 @@
 import { useMemo } from "react";
+import UseLeet from "./";
 import { defaultLeetMap } from "./config";
 import getLeetValue from "./getLeetValue";
 
 
-export default function useGeneratedLeet( value, leetMap = defaultLeetMap ) {
+export default function useGeneratedLeet( value, leetMap = defaultLeetMap, customGenerator = false ) {
   // Memoize the generated leet when either VALUE or LEET_MAP changes
   return useMemo(() => {
+
+    // Hotwire our way to the custom generator.
+    if (UseLeet.generator) { return customGenerator(value); }
 
     // Get some words out that transpile to characters
     let subbedValue = value;
@@ -53,5 +57,5 @@ export default function useGeneratedLeet( value, leetMap = defaultLeetMap ) {
     // Memoize the generated leet
     return generatedLeet;
 
-  }, [value, leetMap]);
+  }, [value, leetMap, customGenerator]);
 }

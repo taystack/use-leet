@@ -1,10 +1,18 @@
-import UseLeet, { useLeet } from "./";
+import UseLeet, {
+  useLeet,
+  UseLeetCustomGeneratorError,
+  UseLeetCustomMapError,
+} from "./";
 import { renderHook } from "@testing-library/react-hooks";
 
 // mock timer using jest
 jest.useFakeTimers();
 
 describe("useLeet", () => {
+  afterEach(() => {
+    UseLeet.resetMap();
+  });
+
   it("should not do anything", () => {
     const { result } = renderHook(() => useLeet());
 
@@ -69,5 +77,30 @@ describe("useLeet", () => {
     UseLeet.setMap(customLeetMap);
     hook = renderHook(() => useLeet("custom leet map"));
     expect(hook.result.current[2]).toBe("Cu570m 1EE7 m4p");
+  });
+
+  it("should only allow CHAR/CHAR pairs in the customMap", () => {
+    try { UseLeet.setMap("foo"); } catch(e) {
+    expect(e.message).toMatch("foo"); }
+
+    try { UseLeet.setMap(["foo"]); } catch(e) {
+    expect(e.message).toMatch("foo"); }
+  });
+
+  it("should allow a custom generator method", () => {
+    const generator = x => x.toUpperCase();
+    UseLeet.setGenerator(generator);
+    const hook = renderHook(() => useLeet("custom leet generator"));
+    expect(hook.result.current[2]).toBe("CUSTOM LEET GENERATOR")
+  });
+
+  it("should only allow functions as custom generators", () => {
+    const generator = "foobar";
+    try {
+      UseLeet.setGenerator("foobar")
+      expect("SHOULD NOT GET HERE").toEqual(true);
+    } catch(e) {
+      expect(e.message).toMatch("customGenerator");
+    }
   });
 });
