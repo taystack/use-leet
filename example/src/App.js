@@ -52,6 +52,9 @@ const App = () => {
     <div style={{
       padding: 50,
       fontSize: 16,
+      fontFamily: "Arial",
+      lineHeight: "1.5em",
+      color: "#2d2d2d",
     }}>
     <h1><a href="https://github.com/taystack/use-leet">@taystack/use-leet</a></h1>
       <p>Leetify your text with this react 16.8+ hook</p>

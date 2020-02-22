@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64d39609ac2fb3a97af030396a2bce6e",
+    "revision": "127c3b6f440654e31891f14202ee7a68",
     "url": "/taystack/use-leet/index.html"
   },
   {
-    "revision": "11a62d7e97a52a8559c2",
+    "revision": "06fb6bed2564f5ca7ef7",
     "url": "/taystack/use-leet/static/css/main.2c6a48fe.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taystack/use-leet/static/js/2.dafd6f51.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "11a62d7e97a52a8559c2",
-    "url": "/taystack/use-leet/static/js/main.5ecacaeb.chunk.js"
+    "revision": "06fb6bed2564f5ca7ef7",
+    "url": "/taystack/use-leet/static/js/main.6798055c.chunk.js"
   },
   {
     "revision": "92ed7bb38cf095b9e7f7",
