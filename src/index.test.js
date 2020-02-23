@@ -2,8 +2,9 @@ import UseLeet, {
   useLeet,
   UseLeetCustomGeneratorError,
   UseLeetCustomMapError,
+  UseLeetError,
 } from "./";
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react-hooks";
 
 // mock timer using jest
 jest.useFakeTimers();
@@ -85,6 +86,9 @@ describe("useLeet", () => {
 
     try { UseLeet.setMap(["foo"]); } catch(e) {
     expect(e.message).toMatch("foo"); }
+
+    try { UseLeet.setMap({a: () => {}}); } catch(e) {
+      expect(e.message).toMatch("() => {}"); }
   });
 
   it("should allow a custom generator method - on the fly", () => {
@@ -105,5 +109,27 @@ describe("useLeet", () => {
     } catch(e) {
       expect(e.message).toMatch("customGenerator");
     }
+  });
+
+  it("should handle unprintable args", () => {
+    const generator = { toString: false };
+    try {
+      UseLeet.setGenerator(generator);
+    } catch(e) {
+      expect(e.message).toMatch("something unprintable");
+    }
+  });
+
+  it("should reset the generator", () => {
+    UseLeet.setGenerator(x => x); // set the generator to do nothing.
+
+    let hook = renderHook(() => useLeet("custom leet generator"));
+
+    expect(hook.result.current[2]).toBe("custom leet generator");
+
+    act(() => {
+      UseLeet.resetGenerator();
+    });
+    expect(hook.result.current[2]).toBe("custom leet generator");
   });
 });
