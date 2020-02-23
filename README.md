@@ -70,14 +70,14 @@ ReactDOM.render(<App />, document.getElementById('root'))
 |customLeetMap|`HASH`|Configures matching letters to return `STRING` values|
 
 ```jsx
-const myCustomLeetMap = { a: "@", b: "6", c: "¢", n: "ñ", "i": "¡" };
+const myCustomLeetMap = { a: "@", g: "6", c: "¢", n: "ñ", "i": "¡" };
 UseLeet.setMap(myCustomLeetMap);
 
 function ShowLeet({ text }) => {
   const [val, setVal, leetText] = useLeet("I crunch granola");
   return (<>{leetText}</>);
 }
-// => "¡ ¢run¢h gr4n014"
+// => "¡ ¢ruñ¢h 6r@ñ01@"
 ```
 
 #### `UseLeet.setGenerator( FUNC customGenerator )`
