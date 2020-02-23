@@ -63,7 +63,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 `import UseLeet from "@taystack/use-leet";`
 
-### `UseLeet.setMap( HASH customLeetMap )`
+#### `UseLeet.setMap( HASH customLeetMap )`
 
 | argument | type | effect |
 |---|---|---|
@@ -79,6 +79,22 @@ function ShowLeet({ text }) => {
 }
 // => "¡ ¢run¢h gr4n014"
 ```
+
+#### `UseLeet.setGenerator( FUNC customGenerator )`
+| argument | type | effect |
+|---|---|---|
+|customGenerator|`FUNC`|customGenerator overrides the default leet generator. Make this method return a string|
+
+```jsx
+const customJavaScriptLeetTranslator = text => text.toUpperCase();
+
+UseLeet.setGenerator(customJavaScriptLeetTranslator);
+
+//...
+const [_, set_, leetVal] = useLeet("this text");
+// => leetVal = "THIS TEXT"
+```
+
 
 ## export `useLeet`
 
