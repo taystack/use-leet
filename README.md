@@ -5,7 +5,7 @@
 
 > Leet-ify your text with leet speak. React hook turns your given text value into 1337 SP34K.
 
-[71v3 d3m0](https://taystack.github.io/use-leet)
+[71v3 d3m0](https://taystack.github.io/use-leet/index.html)
 
 ## Install
 
@@ -63,22 +63,38 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 `import UseLeet from "@taystack/use-leet";`
 
-### `UseLeet.setMap( HASH customLeetMap )`
+#### `UseLeet.setMap( HASH customLeetMap )`
 
 | argument | type | effect |
 |---|---|---|
 |customLeetMap|`HASH`|Configures matching letters to return `STRING` values|
 
 ```jsx
-const myCustomLeetMap = { a: "@", b: "6", c: "¢", n: "ñ", "i": "¡" };
+const myCustomLeetMap = { a: "@", g: "6", c: "¢", n: "ñ", "i": "¡" };
 UseLeet.setMap(myCustomLeetMap);
 
 function ShowLeet({ text }) => {
   const [val, setVal, leetText] = useLeet("I crunch granola");
   return (<>{leetText}</>);
 }
-// => "¡ ¢run¢h gr4n014"
+// => "¡ ¢ruñ¢h 6r@ñ01@"
 ```
+
+#### `UseLeet.setGenerator( FUNC customGenerator )`
+| argument | type | effect |
+|---|---|---|
+|customGenerator|`FUNC`|customGenerator overrides the default leet generator. Make this method return a string|
+
+```jsx
+const customJavaScriptLeetTranslator = text => text.toUpperCase();
+
+UseLeet.setGenerator(customJavaScriptLeetTranslator);
+
+//...
+const [_, set_, leetVal] = useLeet("this text");
+// => leetVal = "THIS TEXT"
+```
+
 
 ## export `useLeet`
 
