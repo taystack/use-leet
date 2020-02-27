@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "901c22504afb718a57052741bf6b440b",
+    "revision": "b98732369b4e67b9e0b36dd504b4fbd3",
     "url": "/use-leet/index.html"
   },
   {
